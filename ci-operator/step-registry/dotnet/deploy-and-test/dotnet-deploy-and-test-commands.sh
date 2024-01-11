@@ -14,6 +14,14 @@ cp $KUBECONFIG /tmp/kubeconfig
 export KUBECONFIG=/tmp/kubeconfig
 export EXT_TEST=$DOTNET_VERSION
 
+which oc
+oc version
+rm /usr/local/bin/oc
+rm /usr/local/bin/kubectl
+rm /usr/local/bin/README.md
+which oc
+oc version
+
 # Run tests
 echo "Executing .net tests..."
 ansible-runner run /tmp/tests/ansible-tests -p deploy-and-test.yml
